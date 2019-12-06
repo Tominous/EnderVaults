@@ -1,0 +1,10 @@
+name: EnderVaults
+version: release-5beta
+main: cosmictest.hcf.endervaults
+description: EnderVaults plugin
+softdepend: [WorldGuard,WorldEdit,Factions]
+author: Sunny#4704
+commands:
+  endervaults:
+    description: Main Command
+    permission: endervaults.commands

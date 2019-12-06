@@ -1,0 +1,256 @@
+region-support:
+  factions:
+    player-disallow: "&d&lEnderVaults &8// &7You are in %faction%&7 territory and vaults are only accessible in the warzone"
+    warzone-only: true
+  worldguard:
+    # you can somewhat use this to make it so players can only open vaults in the warzone and not the upper-spawn warzone by regions
+    # these regions disallow vault opening
+    player-disallow: "&d&lEnderVaults &8// &7You are in a disallowed region and cannot open an ender vault"
+    vault-disallow: "&d&lEnderVaults &8// &7Vault is in a disallowed location so cannot be opened here"
+    disabled-regions:
+      world_name:
+        - "region1_name"
+        - "region2_name"
+
+sounds:
+  # 1.9+ sounds: https://pastebin.com/vY1y9TtJ
+  # 1.8 sounds: https://pastebin.com/DKrMAMBK
+  item-show: 'NOTE_PLING'
+
+messages:
+  help:
+    - "&d&lEnderVaults &aCommands:"
+    - "&d/endervaults &7give <player> <name/all> <amount>"
+    - "&d/endervaults &7giveall <name/all> <amount>"
+    - "&d/endervaults &7reload"
+  commands:
+    reload: "&d&lEnderVaults &8// &7Successfully reloaded files"
+    give:
+      done: "&d&lEnderVaults &8// &7%player% has received %endervault%"
+      done-all: "&d&lEnderVaults &8// &7%player% has received all the Ender Vaults"
+      not-found: "&d&lEnderVaults &8// &c%player% was not found"
+      invalid-vault: "&d&lEnderVaults &8// &cVault not found"
+      received: "&d&lEnderVaults &8// &7You have been given a(n) %endervault%"
+      received-all: "&d&lEnderVaults &8// &7You have been given all the Ender Vaults"
+    giveall:
+      invalid-vault: "&d&lEnderVaults &8// &cVault not found"
+      done: "&d&lEnderVaults &8// &7Everyone has received the %endervault% "
+      done-all: "&d&lEnderVaults &8// &7Everyone has received all the Ender Vaults"
+      received: "&d&lEnderVaults &8// &7You have been given a(n) %endervault%"
+      received-all: "&d&lEnderVaults &8// &7You have been given all the Ender Vaults"
+vaults:
+  'January':
+    base: 'BEACON'
+    # distance is how far away the base will appear
+    distance: 2
+    # How high the item label should be
+    label-height: 1.2
+    item-height: 1.5
+    options:
+      spin:
+        radius: 0.75
+        speed: 1.5
+    show-name: false
+    vault-name: "&d&lEnder Vault &b&nJanuary"
+    # this is the time each item is shown
+    show-time: 3
+    # stash cannot be above the amount of stash items you have placed or errors
+    stash-size: 5
+    items: 10
+    vault-item:
+      name: "&b&l*** &d&lEnder Vault &b&nJanuary&r &b&l***"
+      material: 'BEACON'
+      amount: 1
+      durability: 0
+      data: 0
+      lore:
+        - "&b&nLimited Edition&r &8- &f&nstore.buycraft.com"
+        - ""
+        - "&b&l&nStashed Items (5/10)"
+        - "&f&l* &7x6 &fGold Blocks"
+        - "&f&l* &7x5 &fIron Blocks"
+        - "&d&l* &7x10 &dDiamond Blocks"
+        - "&d&l* &7x64 &dBeacons"
+        - "&d&l* &7x8 &dHoppers"
+        - "&b&l* &7x1 &bJanuary Helmet"
+        - "&b&l* &7x1 &bJanuary Chestplate"
+        - "&b&l* &7x1 &bJanuary Leggings"
+        - "&b&l* &7x1 &bJanuary Boots"
+        - "&d&l* &7x1 &dJanuary Sword"
+        - ""
+        - "&f** &nYou&r&f will receive &nfive &r&frandom stashed"
+        - "&frewards + your &nguaranteed&r &f&nbonus&r &fitem **"
+        - ""
+        - "&d&nGuaranteed Bonus Item"
+        - "&4&l* &7x64 &4Emerald Block"
+        - ""
+        - "&f** &nPlace&r&f to &nOpen&r&f this &nEnder Vault&r&f **"
+    rewards:
+      # this option essentially allows you to have alot of items for which there is a chance that either one could be chosen
+      guaranteed:
+        '0':
+          # cannot be both, either item or command where %player% is the player name
+          name: "none"
+          amount: 64
+          material: 'EMERALD_BLOCK'
+          durability: 0
+          data: 0
+          lore: []
+          enchants: []
+          # leave commands empty if there are no commands, cannot be both commands + item srry xD
+          commands:
+            - "broadcast %player% has won %item% which was guaranteed!!!"
+          chance: 50
+        '1':
+          name: "the hammer of thor"
+          amount: 10
+          material: 'IRON_AXE'
+          durability: 0
+          data: 0
+          lore: []
+          enchants: []
+          commands:
+            - "say %player% has won an iron axe but it went missing :( ..."
+          chance: 69
+      stash:
+        # keep this the same as the items count above
+        '0':
+          # cannot be both, either item or command where %player% is the player name
+          name: "none"
+          amount: 6
+          material: 'GOLD_BLOCK'
+          durability: 0
+          data: 0
+          lore: []
+          enchants: []
+          commands: []
+          # chance of receiving the item
+          chance: 30
+        '1':
+          # cannot be both, either item or command where %player% is the player name
+          name: "none"
+          amount: 5
+          material: 'IRON_BLOCK'
+          durability: 0
+          data: 0
+          lore: []
+          enchants: []
+          # only use this list if command equals true, else it will be ignored
+          commands: []
+          # chance of receiving the item
+          chance: 30
+        '2':
+          # cannot be both, either item or command where %player% is the player name
+          name: "none"
+          amount: 10
+          material: 'DIAMOND_BLOCK'
+          durability: 0
+          data: 0
+          lore: []
+          enchants: []
+          # only use this list if command equals true, else it will be ignored
+          commands: []
+          # chance of receiving the item
+          chance: 20
+        '3':
+          # cannot be both, either item or command where %player% is the player name
+          name: "none"
+          amount: 64
+          material: 'BEACON'
+          durability: 0
+          data: 0
+          lore: []
+          enchants: []
+          # only use this list if command equals true, else it will be ignored
+          commands: []
+          # chance of receiving the item
+          chance: 20
+        '4':
+          # cannot be both, either item or command where %player% is the player name
+          name: "none"
+          amount: 8
+          material: 'HOPPER'
+          durability: 0
+          data: 0
+          lore: []
+          enchants: []
+          # only use this list if command equals true, else it will be ignored
+          commands: []
+          # chance of receiving the item
+          chance: 20
+        '5':
+          # cannot be both, either item or command where %player% is the player name
+          name: "&f&l/ &a&lJanuary Helmet &f&l/"
+          amount: 1
+          material: 'DIAMOND_HELMET'
+          durability: 0
+          data: 0
+          lore: []
+          enchants:
+            - "0:5"
+            - "34:4"
+          # only use this list if command equals true, else it will be ignored
+          commands: []
+          # chance of receiving the item
+          chance: 10
+        '6':
+          # cannot be both, either item or command where %player% is the player name
+          name: "&f&l/ &a&lJanuary Chestplate &f&l/"
+          amount: 1
+          material: 'DIAMOND_CHESTPLATE'
+          durability: 0
+          data: 0
+          lore: []
+          enchants:
+            - "0:5"
+            - "34:4"
+          # only use this list if command equals true, else it will be ignored
+          commands: []
+          # chance of receiving the item
+          chance: 10
+        '7':
+          # cannot be both, either item or command where %player% is the player name
+          name: "&f&l/ &a&lJanuary Leggings &f&l/"
+          amount: 1
+          material: 'DIAMOND_LEGGINGS'
+          durability: 0
+          data: 0
+          lore: []
+          enchants:
+            - "0:5"
+            - "34:4"
+          # only use this list if command equals true, else it will be ignored
+          commands: []
+          # chance of receiving the item
+          chance: 10
+        '8':
+          # cannot be both, either item or command where %player% is the player name
+          name: "&f&l/ &a&lJanuary Boots &f&l/"
+          amount: 1
+          material: 'DIAMOND_BOOTS'
+          durability: 0
+          data: 0
+          lore: []
+          enchants:
+            - "0:5"
+            - "34:4"
+          # only use this list if command equals true, else it will be ignored
+          commands: []
+          # chance of receiving the item
+          chance: 10
+        '9':
+          # cannot be both, either item or command where %player% is the player name
+          name: "&f&l/ &a&lJanuary Sword &f&l/"
+          amount: 1
+          material: 'DIAMOND_SWORD'
+          durability: 0
+          data: 0
+          lore: []
+          enchants:
+            - "16:6"
+            - "20:6"
+            - "34:6"
+          # only use this list if command equals true, else it will be ignored
+          commands: []
+          # chance of receiving the item
+          chance: 5
